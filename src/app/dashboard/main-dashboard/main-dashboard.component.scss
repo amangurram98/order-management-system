@@ -1,0 +1,41 @@
+.center {
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #000000;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: #242424;
+    }
+
+    .modal.show{
+       display: block;
+       height: auto;
+    }
+
+    .modal-body {
+      padding: 15px;
+      height: 300px;
+      //width: 597px;
+      overflow-y: scroll;
+  }
+
+  .modal-dialog{
+   width: 80%;
+  }
+
+  #main {
+   width: 40%;
+   height: 100px;
+   display: flex;
+   justify-content: center;
+ }
+
+ #main div {
+   width: 40%;
+   height: 70px;
+ }
+ 

@@ -1,0 +1,132 @@
+
+<div class="center">
+   
+    <div class="col-sm-6">
+      <h5 class="card-title">Todays orders</h5>
+    </div>
+    <div class="col-sm-6">
+      <button type="button" class="btn btn-primary" (click)="showModel = true" data-toggle="modal" data-target="#myModal">New order</button>
+    </div>
+ <!-- Modal  -->
+    <div class="modal" id="myModal" [ngClass]="{'show': showModel}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="col-sm-6">
+              <h4 class="modal-title">Add Orders</h4>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-danger" *ngIf="proceedButton" (click)="confirmOrder()">Confirm Order</button>
+            </div>
+           
+            <button type="button" class="close"  (click)="showModel = false" data-dismiss="modal">&times;</button>
+          </div>
+    
+          <div class="modal-body">
+                      <div>
+                      <form [formGroup]="customerForm" >
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input type="text" matInput class="form-control" id="username" placeholder="Enter Customer name" formControlName="customerName">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <button class="btn btn-primary" (click)="submitCustomerName() ; itemsForm">Add Customer</button>
+                        </div>
+                      </form>
+                    </div>
+                    <br>
+                    <div *ngIf="itemsForm" class="col-sm-12" 
+                    style="background-color: antiquewhite;border: 1px solid #ff7130;border-radius: 5px;">
+                      <h5 class="card-title">Add items</h5>
+                    
+                      <form [formGroup]="orderList" name="registration_form" id="registration_form" class="form-horizontal">
+                        <div class="form-group">
+                              <div class="col-sm-3">  
+                                <select formControlName="itemName" class="custom-select" id="inputGroupSelect02">
+                                  <!-- <option selected>Please select the item</option> -->
+                                  <option selected value="Burger">Burger</option>
+                                  <option value="Pizza">Pizza</option>
+                                  <option value="GarlicBread">Garlic Bread</option>
+                                  <option value="Coke">Coke</option>
+                                  <option value="Sprite">Sprite</option>
+                                </select>
+                              </div>
+                              <div class="col-sm-3">
+                                <label for="firstname" class="sr-only"></label>
+                                <input id="firstname" formControlName="quantity" class="form-control input-group-lg reg_name" type="number" title="Enter quantity" placeholder="Enter quantity">
+                              </div>       
+                              <div class="col-sm-3">
+                                <label for="lastname" class="sr-only"></label>
+                                <input id="lastname" formControlName="itemPrice" class="form-control input-group-lg reg_name" type="number" title="Enter prize" placeholder="Prize">
+                              </div>
+                              <div class="col-sm-3">
+                                <button type="button" class="btn btn-success" (click)="addItem()">Add Item</button>&nbsp;&nbsp;&nbsp;
+                                <button type="button" class="btn btn-danger" (click)="reset()">Refresh</button>
+                             
+                              </div>
+                      </div>
+                      </form>
+
+                      
+                    </div>
+                   
+                      <div class="col-sm-12">
+                        <h5 class="card-title"> List of items</h5>
+                     <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col">Item name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Prize</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of itemData">
+                            <td >{{item.itemName}}</td>
+                            <td >{{item.quantity}}</td>
+                            <td >{{item.itemPrice}}</td>
+                            <td> <span class="material-icons" (click)="removeItem(item)">delete</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+           
+          </div>
+    
+         
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="showModel = false"  data-dismiss="modal">Close</button>
+          </div> -->
+    
+        </div>
+      </div>
+    </div>
+
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Order number</th>
+            <th scope="col">Order due date</th>
+            <th scope="col">Customer buyer name</th>
+            <th scope="col">Customer address</th>
+            <th scope="col">Customer phone</th>
+            <th scope="col">Order total</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of customers" >
+            <td>{{items.CustomerAddress}}</td>
+            <td>{{items.OrderDueDate}}</td>
+            <td>{{items.name}}</td>
+            <td>{{items.CustomerAddress}}</td>
+            <td>{{items.CustomerPhone}}</td>
+            <td>{{items.OrderTotal}}</td>
+            <td>{{items.CustomerAddress}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
