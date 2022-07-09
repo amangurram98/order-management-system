@@ -1,12 +1,19 @@
 
-<div class="center">
+
+
+<div class="card bg-dark text-white center">
+  <p class="h4">Please Login into Order Mangement System</p>
+  <p class="h3"></p>
+  <img
+  width="100%"
+  alt="Angular Logo"
+  src="../assets/images/banner.jpg"
+/>
     <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="exampleInputPassword1" class="form-label">Username</label>
         <input type="text" matInput class="form-control" id="username" placeholder="Enter Username" formControlName="userid">
-        <div class="invalid-feedback">
-          Please choose a username.
-        </div>
+        <div *ngIf="usernameAlert">Please enter username</div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
@@ -20,3 +27,6 @@
     </form>
     
     </div>
+
+
+    

@@ -1,15 +1,23 @@
-.center {
-    width: 80%;
-    height: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #000000;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: #242424;
-    }
+
+    .center {
+      width: 80%;
+      height: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid #00000025;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+      background-color: #d7d1d136;
+      }
+
+      .heading-center{
+        text-align: center;
+        top: 20%;
+        position: relative;
+      }
 
     .modal.show{
        display: block;
@@ -39,3 +47,8 @@
    height: 70px;
  }
  
+ .outtable{
+  background-color: rgb(255, 255, 255);
+  top: 30%;
+  position: relative;
+ }

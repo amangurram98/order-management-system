@@ -1,12 +1,19 @@
 .center {
     width: 30%;
-    height: 40%;
+    height: 60%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #000000;
+    border: 1px solid #00000025;
     padding: 10px;
     border-radius: 12px;
-    box-shadow: #242424;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    background-color: #d7d1d136;
+    }
+
+    .btn-primary{
+        width: 100%;
+        background-color: rgba(230, 128, 23, 0.9019607843137255);
+        border: 0px;
     }

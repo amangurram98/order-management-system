@@ -1,11 +1,12 @@
 
 <div class="center">
-   
+   <div class="heading-center">
     <div class="col-sm-6">
-      <h5 class="card-title">Todays orders</h5>
+      <h4>Todays orders</h4>
     </div>
     <div class="col-sm-6">
       <button type="button" class="btn btn-primary" (click)="showModel = true" data-toggle="modal" data-target="#myModal">New order</button>
+    </div>
     </div>
  <!-- Modal  -->
     <div class="modal" id="myModal" [ngClass]="{'show': showModel}">
@@ -105,7 +106,7 @@
     </div>
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered outtable">
         <thead>
           <tr>
             <th scope="col">Order number</th>

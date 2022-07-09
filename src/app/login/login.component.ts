@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   });
 
   user: any = {};
+  usernameAlert: boolean = false;
   constructor( private fb: FormBuilder, private router: Router,) { }
 
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     if (this.loginForm.invalid) {
+      this.usernameAlert = true;
       return;
     }else{
       this.router.navigate(['/main-dashboard']);

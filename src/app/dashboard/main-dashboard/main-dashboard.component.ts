@@ -41,14 +41,12 @@ export class MainDashboardComponent implements OnInit {
       return
     }else{
       this.itemsForm = true;
-      console.log('customer recorded')
     }
     console.log(this.customerForm.value.customerName)
   }
 
   loadCustomers() {
     this.customers = JSON.parse(localStorage.getItem('users') ?? '[]')
-    console.log(this.customers)
   }
 
   public addItem(): void{
@@ -79,10 +77,6 @@ export class MainDashboardComponent implements OnInit {
     console.log(this.orderList.value);
     console.log(this.itemData)
     const sum = this.itemData.reduce((s: any, item: any) => s+item.itemPrice, 0)
-    // this.itemData.value.forEach((obj: any) => {
-    //   sum += obj.itemPrice;
-    // });
-    console.log(sum)
     let finalObject = {
       'name': this.customerForm.value.customerName,
       'orders': this.itemData,
@@ -94,8 +88,9 @@ export class MainDashboardComponent implements OnInit {
     console.log(finalObject)
     this.userOrder = Object.assign(this.userOrder, finalObject)
     this.addCustomer(finalObject)
-    console.log(this.userOrder)
-    console.log(this.itemData)
+    this.orderList.reset();
+    this.customerForm.reset();
+    this.customers = [];
     this.showModel = false;
   }
 
