@@ -92,11 +92,11 @@ export class MainDashboardComponent implements OnInit {
     this.customerForm.reset();
     this.customers = [];
     this.showModel = false;
+    this.loadCustomers()
   }
 
   addCustomer(user: any = {}){
     const existingUsers = JSON.parse(localStorage.getItem('users') ?? '[]')
     localStorage.setItem('users', JSON.stringify([...existingUsers, user]))
-    this.loadCustomers()
   }
 }
